@@ -99,4 +99,45 @@
 
 
 
- 
+
+
+### 1, redis
+
+#####  	Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件
+
+​	`通过源码编译安装redis`
+
+​	1.`下载源码包`
+
+​		`wget  http://download.redis.io/releases/redis-4.0.10.tar.gz `
+
+​	2.`解压redis `
+
+​		`tar -zxf redis-4.0.10.tar.gz `
+
+​	3.`进入redis安装包目录`, 直接进行编译安装
+
+​		`make && make install`
+
+​	4.`可以通过指定配置文件骑电动redis`
+
+​		
+
+```
+    vim /opt/redis-4.0.10/redis.conf 
+
+        1.更改bind参数，让redis可以远程访问
+            bind 0.0.0.0
+        2.更改redis的默认端口
+            port 6380
+        3.使用redis的密码进行登录
+            requirepass 登录redis的密码
+        4.指定配置文件启动
+            redis-server redis.conf 
+```
+
+​	5.`通过非默认端口登录redis(包括用户认证)  redis -p auth 密码   `
+
+​	6.`通过登录redis，用命令查看redis的密码`
+​	   `config set  requirepass  新的密码     	#设置新密码`
+​	   `config get  requirepass  			#获取当前的密码`
